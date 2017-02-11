@@ -1,29 +1,20 @@
-var webpack = require('webpack');
-
-var definePlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
-});
-
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
-
-module.exports = {
-  cache: true,
-  entry: {
-    main:  './client/main.js',
+const webpack = require('webpack');
+module.exports={
+  entry: './client/main.js',
+  output:{
+    path:'public',
+    filename:'[name].js'
   },
-  output: {
-    path: 'public/build',
-    filename: '[name].js'
-  },
-  module: {
-    loaders: [
-      {test: /\.jsx$/, loader: 'babel', exclude: /(node_modules|bower_components)/, query: { presets: ['react', 'es2015'] }},
-      {test: /\.js$/, loader: 'babel', exclude: /(node_modules|bower_components)/, query: { presets: ['react', 'es2015'] }},
+  module:{
+    loaders:[
+      {    
+        test:/.jsx?$/,
+        exclude:/node_modules/,
+        loader:'babel-loader',
+        query:{
+          presets:['es2015','react']
+        }
+      }
     ]
-  },
-  plugins: [
-    definePlugin,
-    commonsPlugin
-  ]
+  }
 };
