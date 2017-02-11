@@ -4,7 +4,8 @@
   "description": "basic structure for mern stack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/www"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
     "keymirror": "^0.1.1",
     "object-assign": "^4.0.1",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "webpack": "^1.14.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",
@@ -36,6 +38,7 @@
     "morgan": "~1.5.2",
     "serve-favicon": "^2.3.0",
     "statics": "~0.1.0",
-    "webpack": "^1.12.13"
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^2.3.0"
   }
 }
